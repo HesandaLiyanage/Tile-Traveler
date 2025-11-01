@@ -1,12 +1,14 @@
 package main;
 
+import entity.Player;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Gamepanel extends JPanel implements Runnable {
     //screen settings
     final int originalTileSize = 16; //16x16 tiles
-    final int tileSize = originalTileSize * 3; //48x48 tiles
+    public final int tileSize = originalTileSize * 3; //48x48 tiles
     final int maxScreenCol = 16;
     final int maxScreenRow = 12;
     final int screenWidth = tileSize * maxScreenCol; //768 pixels
@@ -14,8 +16,8 @@ public class Gamepanel extends JPanel implements Runnable {
 
     //fps
     int fps = 60;
-
     KeyHandler keyH = new KeyHandler();
+    Player player = new Player(this, keyH);
     Thread gameThread; //this is the game clock
 
     //set players default position
@@ -96,19 +98,7 @@ public class Gamepanel extends JPanel implements Runnable {
     }
 
         public void update(){
-
-            if (keyH.upPressed) {
-                playerY -= playerSpeed;
-            }
-            else if (keyH.downPressed) {
-                playerY += playerSpeed;
-            }
-            else if (keyH.leftPressed) {
-                playerX -= playerSpeed;
-            }
-            else if (keyH.rightPressed) {
-                playerX += playerSpeed;
-            }
+            player.update();
     }
 
         public void paintComponent(Graphics g) {
@@ -117,8 +107,7 @@ public class Gamepanel extends JPanel implements Runnable {
         //graphics2d has bit more functions
             //we can use this to draw , thats why we converqt to graphics2d
 
-            g2.setColor(Color.white);
-            g2.fillRect(playerX,playerY, tileSize, tileSize);
+            player.draw(g2);
             //for now we using tilesize but then we can use this make the character as well
             g2.dispose();
             //this will dispose the graphics2d object so that we can use it again
