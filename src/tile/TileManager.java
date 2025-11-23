@@ -98,21 +98,21 @@ public class TileManager{
 //        g2.drawImage(tile[2].image,96,192,gp.tileSize,gp.tileSize,null);
 //        g2.drawImage(tile[2].image,144,192,gp.tileSize,gp.tileSize,null);
 //        g2.drawImage(tile[0].image,192,192,gp.tileSize,gp.tileSize,null);
-            int col = 0;
-            int row = 0;
+            int WordlCol = 0;
+            int WorldRow = 0;
 //            int x = 0;
 //            int y = 0;
-            while (col < gp.maxScreenCol && row < gp.maxScreenRow) {
+            while (WordlCol < gp.maxWorldCol && WorldRow < gp.maxWorldRow) {
 
-                int tileNum = mapTileNum[col][row];
+                int tileNum = mapTileNum[WordlCol][WorldRow];
                 g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
-                col++;
-                x += gp.tileSize;
-                if (col == gp.maxScreenCol) {
-                    col = 0;
-                    row++;
-                    x = 0;
-                    y += gp.tileSize;
+                WordlCol++;
+//                x += gp.tileSize;
+                if (WordlCol == gp.maxWorldCol) {
+                    WordlCol = 0;
+                    WorldRow++;
+//                    x = 0;
+//                    y += gp.tileSize;
                 }
                 //16 0s and 12 lines
 
