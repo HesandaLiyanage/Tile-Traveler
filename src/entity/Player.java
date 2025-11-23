@@ -19,6 +19,10 @@ public class Player extends Entity {
     public Player(Gamepanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
+
+        screenX = gp.screenWidth/2;
+        screenY = gp.screenHeight/2;
+
         setDefaultValues();
         getPlayerImage();
     }
@@ -129,7 +133,7 @@ public class Player extends Entity {
                 break;
         }
 
-        g2.drawImage(image,worldX,worldY,gp.tileSize,gp.tileSize,null);
+        g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
         //this null is called image observer
     }
 
