@@ -98,18 +98,20 @@ public class TileManager{
 //        g2.drawImage(tile[2].image,96,192,gp.tileSize,gp.tileSize,null);
 //        g2.drawImage(tile[2].image,144,192,gp.tileSize,gp.tileSize,null);
 //        g2.drawImage(tile[0].image,192,192,gp.tileSize,gp.tileSize,null);
-            int WordlCol = 0;
+            int WorldCol = 0;
             int WorldRow = 0;
 //            int x = 0;
 //            int y = 0;
-            while (WordlCol < gp.maxWorldCol && WorldRow < gp.maxWorldRow) {
+            while (WorldCol < gp.maxWorldCol && WorldRow < gp.maxWorldRow) {
 
                 int tileNum = mapTileNum[WordlCol][WorldRow];
+
+                int worldX = WorldCol *
                 g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
-                WordlCol++;
+                WorldCol++;
 //                x += gp.tileSize;
-                if (WordlCol == gp.maxWorldCol) {
-                    WordlCol = 0;
+                if (WorldCol == gp.maxWorldCol) {
+                    WorldCol = 0;
                     WorldRow++;
 //                    x = 0;
 //                    y += gp.tileSize;
