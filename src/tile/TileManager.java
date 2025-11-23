@@ -109,8 +109,9 @@ public class TileManager{
                 int worldX = WorldCol * gp.tileSize;
                 int worldY = WorldRow * gp.tileSize;
 
-                int screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
-                g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
+                int screenX = worldX - gp.player.worldX + gp.player.screenX;
+                int screenY = worldY - gp.player.worldY + gp.player.screenY;
+                g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
                 WorldCol++;
 //                x += gp.tileSize;
                 if (WorldCol == gp.maxWorldCol) {

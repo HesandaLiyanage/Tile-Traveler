@@ -27,7 +27,7 @@ public class Gamepanel extends JPanel implements Runnable {
 
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
-    Player player = new Player(this, keyH);
+    public Player player = new Player(this, keyH);
     Thread gameThread; //this is the game clock
 
 
