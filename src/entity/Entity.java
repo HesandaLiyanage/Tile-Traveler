@@ -4,8 +4,11 @@ import java.awt.image.BufferedImage;
 
 public class Entity {
     //this is the super class for players
-    public int x,y;
+    public int worldX,worldY;
     public int speed;
+
+    //now what we gonna do is , we move the map instead of the player
+    
 
     public BufferedImage up1,up2,down1,down2,left1,left2,right1,right2;
     public String direction;
