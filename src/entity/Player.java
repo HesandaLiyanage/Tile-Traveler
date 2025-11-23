@@ -21,8 +21,8 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues(){
-        x = 100;
-        y = 100;
+        worldX = 100;
+        worldY = 100;
         speed = 4;
         direction = "down";
     }
@@ -52,19 +52,19 @@ public class Player extends Entity {
         }
         if (keyH.upPressed) {
             direction = "up";
-            y -= speed;
+            worldY -= speed;
         }
         else if (keyH.downPressed) {
             direction = "down";
-            y += speed;
+            worldY += speed;
         }
         else if (keyH.leftPressed) {
             direction = "left";
-            x -= speed;
+            worldX -= speed;
         }
         else if (keyH.rightPressed) {
             direction = "right";
-            x += speed;
+            worldX += speed;
         }
 
         //since this update method is called every frame
@@ -126,7 +126,7 @@ public class Player extends Entity {
                 break;
         }
 
-        g2.drawImage(image,x,y,gp.tileSize,gp.tileSize,null);
+        g2.drawImage(image,worldX,worldY,gp.tileSize,gp.tileSize,null);
         //this null is called image observer
     }
 
