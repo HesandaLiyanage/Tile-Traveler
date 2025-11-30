@@ -56,60 +56,59 @@ public class Player extends Entity {
         }
     }
 
-    public void update(){
+    public void update() {
 
         if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
+
+
+            if (keyH.upPressed == true) {
+                direction = "up";
+            } else if (keyH.downPressed == true) {
+                direction = "down";
+            } else if (keyH.leftPressed == true) {
+                direction = "left";
+            } else if (keyH.rightPressed == true) {
+                direction = "right";
+            }
+
+            //since this update method is called every frame
+            //we need to change the sprite every so often
+            //but why 10 frames?
+            //player image changes every 10 frames.
+            //and this SUCKS.
+            //Because even when the player is not moving , character is wanenava mokada eka wage
+
+            //check tile collision
+            collisionOn = false;
+            gp.cChecker.checkTile(this);
+
+            //if collision is false player can move
+            if (collisionOn == false) {
+                switch (direction) {
+                    case "up":
+                        worldY -= speed;
+                        break;
+                    case "down":
+                        worldY += speed;
+                        break;
+                    case "left":
+                        worldX -= speed;
+                        break;
+                    case "right":
+                        worldX += speed;
+                        break;
+                }
+            }
+
             spriteCounter++;
-        }
-        if (keyH.upPressed == true) {
-            direction = "up";
-        }
-        else if (keyH.downPressed== true) {
-            direction = "down";
-        }
-        else if (keyH.leftPressed== true) {
-            direction = "left";
-        }
-        else if (keyH.rightPressed== true) {
-            direction = "right";
-        }
-
-        //since this update method is called every frame
-        //we need to change the sprite every so often
-        //but why 10 frames?
-        //player image changes every 10 frames.
-        //and this SUCKS.
-        //Because even when the player is not moving , character is wanenava mokada eka wage
-
-        //check tile collision
-        collisionOn = false;
-        gp.collisionChecker.checkTile(this);
-
-        //if collision is false player can move
-        if(collisionOn == false) {
-            switch(direction) {
-                case "up":
-                    worldY -= speed;
-                    break;
-                case "down":
-                    worldY += speed;
-                    break;
-                case "left":
-                    worldX -= speed;
-                    break;
-                case "right":
-                    worldX += speed;
-                    break;
+            if (spriteCounter >= 10) {
+                if (spriteNum == 1) {
+                    spriteNum = 2;
+                } else if (spriteNum == 2) {
+                    spriteNum = 1;
+                }
+                spriteCounter = 0;
             }
-        }
-
-        if(spriteCounter >= 10){
-            if(spriteNum == 1){
-                spriteNum = 2;
-            } else if (spriteNum == 2) {
-                spriteNum = 1;
-            }
-            spriteCounter = 0;
         }
     }
 
