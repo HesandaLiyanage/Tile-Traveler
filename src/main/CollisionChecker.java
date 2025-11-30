@@ -12,6 +12,8 @@ public class CollisionChecker {
 
     public void checkTile(Entity entity) {
 
-
+        int entityLeftWorldX = entity.worldX + entity.solidarea.x;
+        int entityRightWorldX = entity.worldX + entity.solidarea.x;
+        int entityTopWorldY = entity.worldY + entity.solidarea.y;
     }
 }
