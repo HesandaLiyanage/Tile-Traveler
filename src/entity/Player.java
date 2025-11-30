@@ -85,10 +85,23 @@ public class Player extends Entity {
         //and this SUCKS.
         //Because even when the player is not moving , character is wanenava mokada eka wage
 
-
+        //check tile collision
         collisionOn = false;
         gp.collisionChecker.checkTile(this);
 
+        //if collision is false player can move
+        if(collisionOn == false) {
+            switch(direction) {
+                case "up":
+                    break;
+                case "down":
+                    break;
+                case "left":
+                    break;
+                case "right":
+                    break;
+            }
+        }
 
         if(spriteCounter >= 10){
             if(spriteNum == 1){
