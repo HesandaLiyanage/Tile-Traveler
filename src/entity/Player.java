@@ -25,6 +25,8 @@ public class Player extends Entity {
 
         solidarea = new Rectangle(0,0,gp.tileSize,gp.tileSize);
 
+
+
         setDefaultValues();
         getPlayerImage();
     }
