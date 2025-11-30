@@ -63,19 +63,15 @@ public class Player extends Entity {
         }
         if (keyH.upPressed) {
             direction = "up";
-            worldY -= speed;
         }
         else if (keyH.downPressed) {
             direction = "down";
-            worldY += speed;
         }
         else if (keyH.leftPressed) {
             direction = "left";
-            worldX -= speed;
         }
         else if (keyH.rightPressed) {
             direction = "right";
-            worldX += speed;
         }
 
         //since this update method is called every frame
@@ -93,12 +89,16 @@ public class Player extends Entity {
         if(collisionOn == false) {
             switch(direction) {
                 case "up":
+                    worldY -= speed;
                     break;
                 case "down":
+                    worldY += speed;
                     break;
                 case "left":
+                    worldX -= speed;
                     break;
                 case "right":
+                    worldX += speed;
                     break;
             }
         }
