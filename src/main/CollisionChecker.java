@@ -57,6 +57,7 @@ public class CollisionChecker {
                     entity.collisionOn = true;
                 }
                 break;
+                //ISSUE - character is floating somehow
         }
     }
 }
