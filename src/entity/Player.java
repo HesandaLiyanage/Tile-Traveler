@@ -85,6 +85,10 @@ public class Player extends Entity {
         //and this SUCKS.
         //Because even when the player is not moving , character is wanenava mokada eka wage
 
+
+        collisionOn = false;
+        gp.Ch
+
         if(spriteCounter >= 10){
             if(spriteNum == 1){
                 spriteNum = 2;

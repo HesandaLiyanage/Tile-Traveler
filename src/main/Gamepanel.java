@@ -30,7 +30,7 @@ public class Gamepanel extends JPanel implements Runnable {
     public Player player = new Player(this, keyH);
     Thread gameThread; //this is the game clock
 
-    CollisionChecker collisionChecker= new CollisionChecker(this);
+    public CollisionChecker collisionChecker= new CollisionChecker(this);
 
 
 
