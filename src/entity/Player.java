@@ -87,7 +87,7 @@ public class Player extends Entity {
 
 
         collisionOn = false;
-        gp.Ch
+        gp.collisionChecker.checkTile(this);
 
         if(spriteCounter >= 10){
             if(spriteNum == 1){
