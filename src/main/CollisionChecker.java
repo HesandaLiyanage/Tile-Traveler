@@ -26,6 +26,7 @@ public class CollisionChecker {
 
         switch(entity.direction) {
             case "up":
+                entityTopRow = entityTopWorldY - entity.speed/gp.tileSize;
                 break;
             case "down":
                 break;
