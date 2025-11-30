@@ -12,7 +12,7 @@ import java.lang.reflect.GenericArrayType;
 
 public class TileManager{
     Gamepanel gp;
-    Tile[] tile;
+    public Tile[] tile;
     public int[][] mapTileNum;
     public TileManager(Gamepanel gp){
         this.gp = gp;
