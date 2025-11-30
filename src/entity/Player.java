@@ -61,16 +61,16 @@ public class Player extends Entity {
         if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
             spriteCounter++;
         }
-        if (keyH.upPressed) {
+        if (keyH.upPressed == true) {
             direction = "up";
         }
-        else if (keyH.downPressed) {
+        else if (keyH.downPressed== true) {
             direction = "down";
         }
-        else if (keyH.leftPressed) {
+        else if (keyH.leftPressed== true) {
             direction = "left";
         }
-        else if (keyH.rightPressed) {
+        else if (keyH.rightPressed== true) {
             direction = "right";
         }
 
