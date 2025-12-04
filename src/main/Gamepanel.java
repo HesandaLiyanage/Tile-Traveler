@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import object.SuperObject;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -29,10 +30,14 @@ public class Gamepanel extends JPanel implements Runnable {
     KeyHandler keyH = new KeyHandler();
     public Player player = new Player(this, keyH);
     Thread gameThread; //this is the game clock
+    public SuperObject obj[] = new SuperObject[10];
+    //this means we can display up to 10 objects at the same time
+    //now we have to instiate a object and place them
+
 
     public CollisionChecker cChecker= new CollisionChecker(this);
 
-
+    public AssetSetter aSetter = new AssetSetter(this);
 
     public Gamepanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
