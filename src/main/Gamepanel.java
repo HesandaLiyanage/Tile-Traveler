@@ -47,6 +47,10 @@ public class Gamepanel extends JPanel implements Runnable {
         this.setFocusable(true);
     }
 
+    public void setupGame() {
+        aSetter.setObject();
+    }
+
     public void startGameThread() {
 
         gameThread = new Thread(this);
@@ -123,6 +127,14 @@ public class Gamepanel extends JPanel implements Runnable {
             //we can use this to draw , thats why we converqt to graphics2d
             tileM.draw(g2);
             //make sure to draw tiles before the player because these are layers
+
+
+            //object creation
+            for (int i = 0; i < obj.length; i++) {
+                if(obj[i] != null) {
+                    obj[i].draw(g2, this);
+                }
+            }
 
             player.draw(g2);
             //for now we using tilesize but then we can use this make the character as well
