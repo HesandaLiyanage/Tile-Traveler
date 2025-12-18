@@ -60,4 +60,47 @@ public class CollisionChecker {
                 //ISSUE - character is floating somehow - FIXES
         }
     }
+
+    public int checkObject(Entity entity, boolean player) {
+        int index = 999;
+
+        for(int i = 0; i < gp.obj.length; i++) {
+            if(gp.obj[i] != null) {
+                //get entity's solid area position
+                entity.solidarea.x = entity.worldX+ entity.solidarea.x;
+                entity.solidarea.y = entity.worldY+ entity.solidarea.y;
+
+                gp.obj[i].solidArea.x = gp.obj[i].worldX + gp.obj[i].solidArea.x;
+                gp.obj[i].solidArea.y = gp.obj[i].worldY + gp.obj[i].solidArea.y;
+
+                switch(entity.direction) {
+                    case "up":
+                        entity.solidarea.y -= entity.speed;
+                        if(entity.solidarea.intersects(gp.obj[i].solidArea)) {
+                            index = i;
+                        }
+                        break;
+                    case "down":
+                        entity.solidarea.y += entity.speed;
+                        if(entity.solidarea.intersects(gp.obj[i].solidArea)) {
+                            index = i;
+                        }
+                        break;
+                    case "left":
+                        entity.solidarea.x -= entity.speed;
+                        if(entity.solidarea.intersects(gp.obj[i].solidArea)) {
+                            index = i;
+                        }
+                        break;
+                    case "right":
+                        entity.solidarea.x += entity.speed;
+                        if(entity.solidarea.intersects(gp.obj[i].solidArea)) {
+                            index = i;
+                        }
+                        break;
+                }
+            }
+        }
+        return index;
+    }
 }

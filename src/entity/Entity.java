@@ -3,7 +3,7 @@ package entity;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Entity {
+public class  Entity {
     //this is the super class for players
     public int worldX,worldY;
     public int speed;
@@ -19,6 +19,7 @@ public class Entity {
     public int spriteNum = 1;
 
     public Rectangle solidarea;
+    public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
 
     //again coordinates and movement speed defined
