@@ -77,28 +77,56 @@ public class CollisionChecker {
                     case "up":
                         entity.solidarea.y -= entity.speed;
                         if(entity.solidarea.intersects(gp.obj[i].solidArea)) {
+                            if(gp.obj[i].collision == true){
+                                entity.collisionOn = true;
+                            }
+                            if (player == true) {
+                                index = i;
+                            }
                             index = i;
                         }
                         break;
                     case "down":
                         entity.solidarea.y += entity.speed;
                         if(entity.solidarea.intersects(gp.obj[i].solidArea)) {
+                            if(gp.obj[i].collision == true){
+                                entity.collisionOn = true;
+                            }
+                            if (player == true) {
+                                index = i;
+                            }
                             index = i;
                         }
                         break;
                     case "left":
                         entity.solidarea.x -= entity.speed;
                         if(entity.solidarea.intersects(gp.obj[i].solidArea)) {
+                            if(gp.obj[i].collision == true){
+                                entity.collisionOn = true;
+                            }
+                            if (player == true) {
+                                index = i;
+                            }
                             index = i;
                         }
                         break;
                     case "right":
                         entity.solidarea.x += entity.speed;
                         if(entity.solidarea.intersects(gp.obj[i].solidArea)) {
+                            if(gp.obj[i].collision == true){
+                                entity.collisionOn = true;
+                            }
+                            if (player == true) {
+                                index = i;
+                            }
                             index = i;
                         }
                         break;
                 }
+                entity.solidarea.x = entity.solidAreaDefaultX;
+                entity.solidarea.y = entity.solidAreaDefaultY;
+                gp.obj[i].solidArea.x = gp.obj[i].solidAreaDefaultX;
+                gp.obj[i].solidArea.y = gp.obj[i].solidAreaDefaultY;
             }
         }
         return index;

@@ -89,6 +89,9 @@ public class Player extends Entity {
             collisionOn = false;
             gp.cChecker.checkTile(this);
 
+            int objIndex = gp.cChecker.checkObject(this, true);
+            pickUpObject(objIndex);
+
             //if collision is false player can move
             if (collisionOn == false) {
                 switch (direction) {
@@ -116,6 +119,12 @@ public class Player extends Entity {
                 }
                 spriteCounter = 0;
             }
+        }
+    }
+
+    public void pickUpObject(int i){
+        if ( i != 999) {
+            gp.obj[i] = null;
         }
     }
 
